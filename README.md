@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Web Games Collection
 
 A collection of 5 simple and fun web games developed with HTML, CSS, and JavaScript.
@@ -24,3 +25,7 @@ The project folder contains:
 - `images/` - Folder containing images and game assets.
 - `scripts/` - Folder containing JavaScript files for each game and shared scripts (e.g. search.js).
 
+=======
+# Simple-Games
+ A collection of 5 simple and fun web games including Tic Tac Toe, Memory Cards, Flow Free, Guess the Film (Arabic), and Word Scramble. Play directly in your browser with responsive design and interactive gameplay.
+>>>>>>> b436a181dc67d2549d67ea8ffdf0402ede8f7ad9
