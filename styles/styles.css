@@ -1,0 +1,693 @@
+/* Reset default spacing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  padding: 15px 30px;
+  color: white;
+  z-index: 1000;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+  padding-top: 60px;
+}
+
+/* Flex container for navbar content */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left side: logo + search */
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Logo styles */
+.logo h1 {
+  font-size: 25px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 i {
+  color: #00ffcc;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Search box styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-left: 60px; 
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  width: 300px;
+}
+
+.search-button {
+  background-color: #00cc88;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #009f66;
+}
+
+/* Right side: About + Contact */
+.right-side {
+  display: flex;
+  align-items: center;
+  margin-right: 40px; 
+  gap: 25px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00ffcc;
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* scroller */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;  /* لون الخلفية للسكروول */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #095848;  /* لون جزء السكروول نفسه */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #095848;  /* لون عند الـ hover */
+}
+
+
+/* ------------------------------------------------------ */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+}
+
+.main-heading h1{
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 50px;
+}
+
+
+.main-heading p{
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+}
+/* ------------------------------------------------ */
+    .game-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; 
+      gap: 20px;
+      padding: 60px;
+    }
+
+      .game-card {
+      display: flex;
+      flex-direction: column; /* Stack title and image vertically */
+      justify-content: center; /* Center vertically */
+      align-items: center; /* Center horizontally */
+      width: 200px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s;
+      padding: 20px; /* optional spacing */
+      box-sizing: border-box;
+    }
+
+
+    .game-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .game-content .right-side img {
+      margin-left: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    
+
+    .game-info {
+      padding: 10px;
+    }
+
+    .game-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 15px; /* space between title and image */
+      text-align: center;
+    }
+
+    .game-subtitle {
+      font-size: 0.85em;
+      color: #ccc;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8em;
+    }
+    /* -------------------Contact Section------------------------ */
+    /* Contact Section */
+    .contact-section {
+      background-color: #222;
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .contact-container h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .contact-container p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .contact-icons a {
+      color: #00ffcc;
+      font-size: 30px;
+      transition: color 0.3s;
+    }
+
+    .contact-icons a:hover {
+      color: #00cc88;
+    }
+/* ------------------------about section------------------------------ */
+.game-section {
+  padding: 50px 20px;
+  color: white;
+}
+
+.game-content {
+  display: flex;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.game-content .left-side {
+  flex: 1 1 400px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.game-content .left-side h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+} 
+
+.game-content .left-side p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.game-content .left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.game-content .right-side img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.start-button {
+  display: block;       /* make it behave like a block to center with margin */
+  margin: 20px auto 0 auto; /* top & bottom 0, left & right auto to center horizontally */
+  padding: 12px 25px;
+  background-color: #00cc88;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-content.reverse {
+  flex-direction: row-reverse;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* inherit color from parent */
+}
+
+
+.start-button:hover {
+  background-color: #009f66;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 400px; 
+  margin: auto;
+}
+
+/* ------------------------Memory Cards---------------------- */
+/* Memory Game Section */
+.memory-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.memory {
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background: #35695f;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+  user-select: none;
+}
+
+.card.flipped {
+  background: #fff;
+}
+
+.timer {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Restart Button */
+.restart-button {
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #009f66;
+}
+
+#timer {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .game-content,
+  .game-content.reverse {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .game-content .right-side img {
+    margin-left: 0; /* remove extra margin on mobile */
+  }
+}
+/* ---------------------Tic Tac Toe Game--------------------- */
+#tic-tac-toe-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#tic-tac-toe-game{
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor: pointer;
+  background-color: #81b7ac;
+}
+
+.cell.x {
+  color: #e74c3c; 
+  font-weight: bold;
+}
+
+.cell.o {
+  color: #3498db;
+  font-weight: bold;
+}
+
+#status {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  text-align: center;
+}
+
+@keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+}
+
+/* ------------------------Flow Free------------------------- */
+
+#gameCanvas {
+  background-color: #095848;
+  display: block;
+  margin: 20px auto;
+  border: 2px solid #123;
+  touch-action: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+/* ------------------------Word Scramble-------------------- */
+
+.game-container {
+  text-align: center;
+}
+
+.scrambled-word {
+  align-items: center;
+  justify-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 1px 0;
+}
+
+.guess-input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  margin-bottom: 10px;
+  margin-top: 1px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.guess-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.guess-button:hover {
+  background-color: #218838;
+}
+
+.result-text {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.scrambled-container {
+  display: flex;
+  margin-left: 35px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+
+.letter-card {
+  width: 70px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #ffffff;
+  border: 2px solid #58ac9c;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}/* ---------------------Guess the Movie-------------------- */
+.film {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* Confetti animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+.film .letter-card {
+  width: 50px;
+  height: 55px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px solid #58ac9c;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.scrambled-container {
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.letter-card {
+  width: 50px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #ffffff;
+  border: 2px solid #58ac9c;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.game-wrapper {
+  display: flex;
+  justify-content: center;   
+  gap: 60px;                
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: flex-start;  
+}
+
+.wrong-letters-container-left {
+  margin-top: 100px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 160px; /* fixed width */
+  color: #00ffcc;
+  font-weight: bold;
+  user-select: none;
+  text-align: center;
+}
+
+.grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 45px);
+  grid-template-rows: repeat(3, 45px);
+  gap: 30px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.filmCard {
+  width: 70px;
+  height: 50px;
+  border: 2px solid #58ac9c;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.game-container-right {
+  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  max-width: 320px;
+}
+
+#attemptsLeft {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #00ffcc;
+  text-align: center;
+}
+
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games Website</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+<header>
+  <div class="navbar">
+    <div class="container">
+      <!-- Left Side: Logo + Search -->
+      <div class="left-side">
+        <div class="logo">
+          <a href="index.html">
+            <h1><i class="fas fa-gamepad"></i> Games</h1>
+          </a>
+        </div>
+
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search for games..." />
+          <button class="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Side: About + Contact + Home -->
+      <div class="right-side">
+        <a href="#Home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact-section" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero-section" id="Home">
+  <!-- Main Heading (optional) -->
+  <div class="main-heading">
+    <h1>Fun Games</h1>
+    <p>Welcome to our Games Website, the easy way to play games online.</p>
+  </div>
+
+
+  <!-- Game Cards Section -->
+  <section class="game-cards">
+    <div class="game-card" style="background-color: #81b7ac;">
+      <a href="tic-tac-toe.html">
+      <div class="game-title">Tic Tac Toe</div>
+      <img src="images/tic-tac-toe.png" alt="Transparent Image" style="max-width: 100%; max-height: 100%;">  
+    </a> 
+    </div>
+
+    <div class="game-card" style="background-color: #35695f;">
+        <a href="memory-cards.html">
+          <div class="game-title">Memory Cards</div>
+          <img src="images/memory-cards.png" alt="Transparent Image" style="max-width: 100%; max-height: 100%;"> 
+        </a>
+    </div>
+
+    <div class="game-card" style="background-color: #58ac9c;">
+      <a href="word-scramble.html">
+        <div class="game-title">Word Scramble</div>
+        <img src="images/words-scramble.png" alt="Transparent Image" style="max-width: 100%; max-height: 100%;"> 
+      </a>
+    </div>
+
+    <div class="game-card" style="background-color: #0b9e80;">
+      <a href="guess-the-movie.html">
+      <div class="game-title">Guess The Movie</div>
+      <img src="images/guess-the-movie.png" alt="Transparent Image" style="max-width: 100%; max-height: 100%;"> 
+      </a>
+    </div>
+
+    <div class="game-card" style="background-color: #095848;">
+      <a href="flow-free.html">
+        <div class="game-title">Flow Free</div>
+        <img src="images/flow-free1.png" alt="Transparent Image" style="max-width: 100%; max-height: 100%;"> 
+      </a>
+    </div>
+  </section>
+</section>
+
+
+
+<!-- About Section -->
+<section class="game-section" style="background-color: #81b7ac;"  id="about">
+  <div class="game-content reverse">
+    <div class="left-side">
+      <h2>Tic Tac Toe</h2>
+      <p>
+        Tic Tac Toe is a classic two-player game where you try to get three marks in a row before your opponent. 
+        Simple to learn, fun to master!
+        Play against friends or challenge yourself to improve your strategy and reaction.
+      </p>
+      <a href="tic-tac-toe.html" class="start-link">
+        <button class="start-button">Play now</button>
+      </a>
+    </div>
+    <div class="right-side">
+     <div class="game-container">
+      <img src="images/tic-tac-toe.png" class="game-image" />
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="game-section" style="background-color: #35695f;">
+  <div class="game-content">
+    <div class="left-side">
+      <h2>Memory Cards</h2>
+      <p>
+        Memory Cards is a fun game that tests your memory skills. 
+        Flip the cards to find matching pairs and improve your concentration.
+      </p>
+      <a href="memory-cards.html" class="start-link">
+        <button class="start-button">Play now</button>
+      </a>
+    </div>
+    <div class="right-side">
+      <img src="images/memory-cards.png" alt="Memory Cards Game" />
+    </div>
+  </div>
+</section>
+
+
+<section class="game-section" style="background-color: #58ac9c;">
+  <div class="game-content reverse">
+    <div class="left-side">
+      <h2>Word Scramble</h2>
+      <p>
+        Word Scramble is a challenging game where you rearrange letters to form words. 
+        Test your vocabulary and speed in this engaging puzzle game.
+      </p>
+      <a href="word-scramble.html" class="start-link">
+        <button class="start-button">Play now</button>
+      </a>
+    </div>
+    <div class="right-side">
+      <img src="images/words-scramble.png" alt="Word Scramble Game" />
+    </div>
+  </div>
+</section>
+
+<section class="game-section" style="background-color: #0b9e80;">
+  <div class="game-content">
+    <div class="left-side">
+      <h2>Guess The Movie</h2>
+      <p>
+        Guess The Movie is a fun game where you guess the movie title based on clues or images. 
+        Perfect for movie buffs and trivia lovers!
+      </p>
+      <a href="guess-the-movie.html" class="start-link"> 
+        <button class="start-button">Play now</button>
+      </a>
+    </div>
+    <div class="right-side">
+      <img src="images/guess-the-movie.png" alt="Guess The Movie Game" />
+    </div>
+  </div>
+</section>
+
+<section class="game-section" style="background-color: #095848;">
+  <div class="game-content reverse">
+    <div class="left-side">
+      <h2>Flow Free</h2>
+      <p>
+        Flow Free is a puzzle game where you connect matching colors with pipes. 
+        The goal is to cover the entire board without overlapping paths.
+      </p>
+      <a href="flow-free.html" class="start-link">
+        <button class="start-button">Play now</button>
+      </a>
+    </div>
+    <div class="right-side">
+      <img src="images/flow-free1.png" alt="Flow Free Game" />
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact-section">
+  <div class="contact-container">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out for any inquiries or feedback!</p>
+    
+    <div class="contact-icons">
+      <div class="contact-badge">
+        <a href="mailto:menna0hekal2020@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+      <div class="contact-badge">
+        <a href="https://www.linkedin.com/in/menna-hekal-231286294/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+      <div class="contact-badge">
+        <a href="https://github.com/Menna107" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="scripts/search.js"></script>
+</body>
+</html>
