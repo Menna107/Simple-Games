@@ -23,7 +23,7 @@ let board = ["", "", "", "", "", "", "", "", ""];
         if (!board[index] && !gameOver) {
           board[index] = currentPlayer;
           cell.textContent = currentPlayer;
-          cell.classList.add(currentPlayer.toLowerCase()); // add class "x" or "o"
+          cell.classList.add(currentPlayer.toLowerCase()); 
           checkWinner();
           if (!gameOver) {
             switchPlayer();
@@ -100,5 +100,4 @@ let board = ["", "", "", "", "", "", "", "", ""];
       }
     }
 
-    // Initial status update
     updateStatus();

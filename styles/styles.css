@@ -115,7 +115,6 @@ img {
   color: #00ffcc;
 }
 
-/* Smooth scroll behavior for anchor links */
 html {
   scroll-behavior: smooth;
 }
@@ -127,16 +126,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;  /* لون الخلفية للسكروول */
+  background: #111;  
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #095848;  /* لون جزء السكروول نفسه */
+  background: #095848; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #095848;  /* لون عند الـ hover */
+  background: #095848;  
 }
 
 
@@ -176,9 +175,9 @@ html {
 
       .game-card {
       display: flex;
-      flex-direction: column; /* Stack title and image vertically */
-      justify-content: center; /* Center vertically */
-      align-items: center; /* Center horizontally */
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
       width: 200px;
       height: 300px;
       border-radius: 20px;
@@ -187,7 +186,7 @@ html {
       color: white;
       cursor: pointer;
       transition: transform 0.3s;
-      padding: 20px; /* optional spacing */
+      padding: 20px; 
       box-sizing: border-box;
     }
 
@@ -211,7 +210,7 @@ html {
     .game-title {
       font-size: 1.3em;
       font-weight: bold;
-      margin-bottom: 15px; /* space between title and image */
+      margin-bottom: 15px; 
       text-align: center;
     }
 
@@ -230,7 +229,6 @@ html {
       font-size: 0.8em;
     }
     /* -------------------Contact Section------------------------ */
-    /* Contact Section */
     .contact-section {
       background-color: #222;
       padding: 60px 20px;
@@ -308,8 +306,8 @@ html {
 }
 
 .start-button {
-  display: block;       /* make it behave like a block to center with margin */
-  margin: 20px auto 0 auto; /* top & bottom 0, left & right auto to center horizontally */
+  display: block;      
+  margin: 20px auto 0 auto; 
   padding: 12px 25px;
   background-color: #00cc88;
   border: none;
@@ -326,7 +324,7 @@ html {
 
 a {
   text-decoration: none;
-  color: inherit; /* inherit color from parent */
+  color: inherit; 
 }
 
 
@@ -335,13 +333,16 @@ a {
 }
 
 .game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
   width: 100%;
   max-width: 400px; 
   margin: auto;
 }
 
 /* ------------------------Memory Cards---------------------- */
-/* Memory Game Section */
 .memory-section {
   padding: 60px 20px;
   text-align: center;
@@ -386,7 +387,6 @@ a {
   margin-bottom: 20px;
 }
 
-/* Restart Button */
 .restart-button {
   justify-content: center;
   text-align: center;
@@ -405,8 +405,8 @@ a {
 
 #timer {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
+  justify-content: center; 
+  align-items: center;    
   text-align: center;
 }
 
@@ -418,7 +418,7 @@ a {
   }
 
   .game-content .right-side img {
-    margin-left: 0; /* remove extra margin on mobile */
+    margin-left: 0; 
   }
 }
 /* ---------------------Tic Tac Toe Game--------------------- */
@@ -648,7 +648,8 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  width: 160px; /* fixed width */
+  max-width: 160px;
+
   color: #00ffcc;
   font-weight: bold;
   user-select: none;
@@ -691,14 +692,18 @@ a {
 }
 
 #attemptsLeft {
-  margin-top: 10px;
+  margin: 0;
+  padding: 0;
   font-weight: bold;
   color: #00ffcc;
   text-align: center;
 }
 
-
 @media (max-width: 768px) {
+  body {
+    padding-top: 100px; 
+  }
+
   .navbar .container {
     flex-direction: column;
     align-items: flex-start;
@@ -765,4 +770,150 @@ a {
   .grid-3x3 {
     gap: 15px;
   }
+
+  .film {
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .filmCard {
+    width: 50px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .wrong-letters-container-left,
+  .game-container-right {
+    margin: 0;
+    width: 100%;
+    max-width: 160px;
+    align-items: center;
+  }
+
+  .start-button {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .game-content .left-side {
+    align-items: center;
+    text-align: center;
+  }
+
+  .game-content .left-side h2,
+  .game-content .left-side p {
+    text-align: center;
+  }
+
+   .game-content,
+  .game-content.reverse {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .game-content .left-side,
+  .game-content .right-side {
+    margin: 0;
+    padding: 0;
+  }
+
+  .game-content .right-side img {
+    margin: 0 auto;
+  }
+
+  .game-content,
+  .game-content.reverse {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    gap: 15px !important; 
+  }
+
+  .game-content .left-side,
+  .game-content .right-side {
+    flex: unset; 
+    width: 100%;  
+    padding: 0;
+    margin: 0;
+  }
+
+  .game-content .right-side img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; 
+  }
+
+  .start-button {
+    margin-top: 10px;
+  }
+
+  .memory {
+    margin-top: 80px; 
+    padding-top: 10px;
+  }
+  
+  #tic-tac-toe-board {
+    margin-top: 15px;
+  }
+
+  .film {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    margin: 20px auto;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .film .letter-card {
+    width: 30px;
+    height: 40px;
+    font-size: 18px;
+    margin: 0 2px;
+  }
+
+  .film .word-separator {
+    width: 100%;
+    height: 10px;
+    display: none; 
+  }
+
+  .film .letter-card.space {
+    visibility: hidden;
+    width: 15px;
+    position: relative;
+  }
+
+  .film .letter-card.space::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: #00ffcc;
+    border-radius: 50%;
+    visibility: visible;
+  }
+
+ .scrambled-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); 
+  justify-items: center;
+  gap: 5px;
+  max-width: 100%;
+  margin: 0px auto;
+  padding: 0 0px;
+}
+
+.letter-card {
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+}
 }

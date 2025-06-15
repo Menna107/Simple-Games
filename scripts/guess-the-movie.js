@@ -9,15 +9,14 @@ const movies = [
   "حسن ومرقص",
   "البحث عن ليلى",
   "سهر الليالي",
-  "كباريه",
   "تيتو",
-  "إبراهيم الأبيض",
+  "ابراهيم الابيض",
   "واحد صفر",
   "البدلة",
   "الفيل الأزرق 2",
   "كارما",
   "ولاد رزق",
-  "إكس لارج",
+  "اكس لارج",
   "تراب الماس"
 ];
 
@@ -40,6 +39,16 @@ const wrongWordsList = document.getElementById("wrongWordsList");
 const restartBtn = document.querySelector(".start-button");
 
 filmDiv.style.direction = "rtl";
+
+function normalize(text) {
+  return text
+    .replace(/أ|إ|آ/g, "ا")
+    .replace(/ة/g, "ه")
+    .replace(/ى/g, "ي")
+    .replace(/ؤ/g, "و")
+    .replace(/ئ/g, "ي")
+    .replace(/ً|ٌ|ٍ|َ|ُ|ِ|ّ|ْ/g, "");
+}
 
 function startGame() {
   if (usedMovies.length === movies.length) {
@@ -70,25 +79,31 @@ function startGame() {
   updateWrongLetters();
   fillLettersContainer();
 }
-
 function updateMovieDisplay() {
   filmDiv.innerHTML = "";
 
-  displayedMovie.forEach(char => {
+  displayedMovie.forEach((char, index) => {
     const letterCard = document.createElement("div");
     letterCard.classList.add("letter-card");
 
     if (char === " ") {
-      letterCard.style.border = "none";
-      letterCard.style.background = "transparent";
-      letterCard.textContent = " ";
-      letterCard.style.width = "30px";
-      letterCard.style.boxShadow = "none";
+      const dotDiv = document.createElement("div");
+      dotDiv.textContent = ".";
+      dotDiv.style.color = "#00ffcc";
+      dotDiv.style.fontWeight = "bold";
+      dotDiv.style.fontSize = "20px";
+      dotDiv.style.margin = "0 8px";
+      dotDiv.style.display = "flex";
+      dotDiv.style.alignItems = "center";
+      dotDiv.style.justifyContent = "center";
+      dotDiv.style.border = "none";
+      dotDiv.style.background = "transparent";
+      dotDiv.style.boxShadow = "none";
+      filmDiv.appendChild(dotDiv);
     } else {
       letterCard.textContent = char;
+      filmDiv.appendChild(letterCard);
     }
-
-    filmDiv.appendChild(letterCard);
   });
 }
 
@@ -146,28 +161,30 @@ function handleLetterClick(letter, cardElement) {
   cardElement.style.pointerEvents = "none";
   cardElement.style.opacity = "0.5";
 
-  if (chosenMovie.includes(letter)) {
+  if (normalize(chosenMovie).includes(normalize(letter))) {
     for (let i = 0; i < chosenMovie.length; i++) {
-      if (chosenMovie[i] === letter) {
-        displayedMovie[i] = letter;
+      if (normalize(chosenMovie[i]) === normalize(letter)) {
+        displayedMovie[i] = chosenMovie[i];
       }
     }
     updateMovieDisplay();
 
     if (!displayedMovie.includes("-")) {
       messageP.style.color = "green";
-      messageP.textContent = "🎉 Congratulations! You guessed the movie correctly!";
+      messageP.textContent = `🎉 Congratulations! You guessed the movie correctly! It was: ${chosenMovie}`;
       disableAllLetterCards();
       confettiEffect();
     }
   } else {
-    wrongLetters.push(letter);
-    attemptsLeft--;
+    if (!wrongLetters.includes(letter)) {
+      wrongLetters.push(letter);
+      attemptsLeft--;
+    }
     updateWrongLetters();
 
     if (attemptsLeft === 0) {
       messageP.style.color = "red";
-      messageP.textContent = `You lost! Try again later.`;
+      messageP.textContent = `You lost! The movie was: ${chosenMovie}`;
       revealMovie();
       disableAllLetterCards();
     }
@@ -190,6 +207,20 @@ function revealMovie() {
 restartBtn.addEventListener("click", startGame);
 
 function confettiEffect() {
+  if (!document.getElementById("confetti-style")) {
+    const style = document.createElement('style');
+    style.id = "confetti-style";
+    style.textContent = `
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   for (let i = 0; i < 100; i++) {
     const confetti = document.createElement('div');
     confetti.style.position = 'fixed';
@@ -201,11 +232,9 @@ function confettiEffect() {
     confetti.style.opacity = '0.8';
     confetti.style.borderRadius = '50%';
     confetti.style.zIndex = 1000;
-    confetti.style.animation = `fall 2s ease-out forwards`;
-    confetti.style.animationDelay = `${Math.random() * 2}s`;
-
+    confetti.style.animation = `fall ${2 + Math.random() * 2}s ease-out forwards`;
     document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 3000);
+    setTimeout(() => confetti.remove(), 4000);
   }
 }
 

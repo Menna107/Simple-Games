@@ -9,6 +9,7 @@ let dragging = false;
 let currentColor = null;
 let currentPath = [];
 let gameOver = false;
+let startPoint = null;
 
 const points = {
   green: [[0, 1], [4, 7]],
@@ -107,39 +108,54 @@ canvas.addEventListener("mousedown", (e) => {
         dragging = true;
         currentColor = color;
         currentPath = [[x, y]];
+        startPoint = [x, y];  
         drawAll();
         return;
       }
     }
   }
 });
+
 canvas.addEventListener("mousemove", (e) => {
   if (!dragging || gameOver) return;
   const [cx, cy] = getCellFromCoords(e.clientX, e.clientY);
   if (cx < 0 || cy < 0 || cx >= cols || cy >= rows) return;
 
   const last = currentPath[currentPath.length - 1];
+  const [start, end] = points[currentColor];
+
+  const endPoint = (startPoint[0] === start[0] && startPoint[1] === start[1]) ? end : start;
+
+  if (last[0] === endPoint[0] && last[1] === endPoint[1]) {
+    return;
+  }
+
   const dx = Math.abs(cx - last[0]);
   const dy = Math.abs(cy - last[1]);
   const isAdjacent = (dx + dy === 1);
   const alreadyUsed = currentPath.some(([x, y]) => x === cx && y === cy);
 
-  // Check if the cell is a constant point (start or end points of any color)
   const isConstPoint = Object.values(points).some(pairs =>
     pairs.some(([x, y]) => x === cx && y === cy)
   );
 
-  // Allow drawing over a constant point only if it belongs to the current color's start or end point
   const isAllowedConstPoint =
-    (cx === points[currentColor][0][0] && cy === points[currentColor][0][1]) ||
-    (cx === points[currentColor][1][0] && cy === points[currentColor][1][1]);
+    (cx === start[0] && cy === start[1]) ||
+    (cx === end[0] && cy === end[1]);
 
-  if (isAdjacent && !alreadyUsed && !isCellUsed(cx, cy) && (!isConstPoint || isAllowedConstPoint)) {
+  if (
+    isAdjacent &&
+    !alreadyUsed &&
+    !isCellUsed(cx, cy) &&
+    (
+      !isConstPoint ||
+      (isAllowedConstPoint && !alreadyUsed)
+    )
+  ) {
     currentPath.push([cx, cy]);
     drawAll();
   }
 });
-
 
 canvas.addEventListener("mouseup", (e) => {
   if (!dragging || gameOver) return;
@@ -147,7 +163,6 @@ canvas.addEventListener("mouseup", (e) => {
   const last = currentPath[currentPath.length - 1];
   const [lx, ly] = last;
 
-  const isEndpoint = points[currentColor].some(([x, y]) => x === lx && y === ly);
   const [start, end] = points[currentColor];
   const startMatch = (start[0] === currentPath[0][0] && start[1] === currentPath[0][1]);
   const endMatch = (end[0] === lx && end[1] === ly);
@@ -161,6 +176,7 @@ canvas.addEventListener("mouseup", (e) => {
   dragging = false;
   currentColor = null;
   currentPath = [];
+  startPoint = null;  
   drawAll();
   checkWinOrLose();
 });
@@ -206,13 +222,13 @@ function getRandomFreeCell(usedCells) {
   }
 }
 
-
 function startGame() {
   dragging = false;
   currentColor = null;
   currentPath = [];
   completedPaths = {};
   gameOver = false;
+  startPoint = null;
 
   // Used cells tracker to avoid overlapping points
   const usedCells = [];
@@ -222,7 +238,6 @@ function startGame() {
 
   // Randomize points object
   for (const color of colors) {
-    // Generate two distinct random points for each color
     const point1 = getRandomFreeCell(usedCells);
     usedCells.push(point1);
     let point2;
@@ -237,5 +252,90 @@ function startGame() {
   drawAll();
 }
 
-// Start the game
+canvas.addEventListener("touchstart", (e) => {
+  if (gameOver) return;
+  const touch = e.touches[0];
+  const [cx, cy] = getCellFromCoords(touch.clientX, touch.clientY);
+  if (cx < 0 || cy < 0 || cx >= cols || cy >= rows) return;
+
+  for (const color in points) {
+    for (const [x, y] of points[color]) {
+      if (cx === x && cy === y && !completedPaths[color]) {
+        dragging = true;
+        currentColor = color;
+        currentPath = [[x, y]];
+        startPoint = [x, y]; 
+        drawAll();
+        return;
+      }
+    }
+  }
+});
+
+canvas.addEventListener("touchmove", (e) => {
+  if (!dragging || gameOver) return;
+  const touch = e.touches[0];
+  const [cx, cy] = getCellFromCoords(touch.clientX, touch.clientY);
+  if (cx < 0 || cy < 0 || cx >= cols || cy >= rows) return;
+
+  const last = currentPath[currentPath.length - 1];
+  const [start, end] = points[currentColor];
+
+  const endPoint = (startPoint[0] === start[0] && startPoint[1] === start[1]) ? end : start;
+
+  if (last[0] === endPoint[0] && last[1] === endPoint[1]) {
+    return;
+  }
+
+  const dx = Math.abs(cx - last[0]);
+  const dy = Math.abs(cy - last[1]);
+  const isAdjacent = (dx + dy === 1);
+  const alreadyUsed = currentPath.some(([x, y]) => x === cx && y === cy);
+
+  const isConstPoint = Object.values(points).some(pairs =>
+    pairs.some(([x, y]) => x === cx && y === cy)
+  );
+
+  const isAllowedConstPoint =
+    (cx === start[0] && cy === start[1]) ||
+    (cx === end[0] && cy === end[1]);
+
+  if (
+    isAdjacent &&
+    !alreadyUsed &&
+    !isCellUsed(cx, cy) &&
+    (
+      !isConstPoint ||
+      (isAllowedConstPoint && !alreadyUsed)
+    )
+  ) {
+    currentPath.push([cx, cy]);
+    drawAll();
+  }
+});
+
+canvas.addEventListener("touchend", (e) => {
+  if (!dragging || gameOver) return;
+
+  const last = currentPath[currentPath.length - 1];
+  const [lx, ly] = last;
+
+  const [start, end] = points[currentColor];
+  const startMatch = (start[0] === currentPath[0][0] && start[1] === currentPath[0][1]);
+  const endMatch = (end[0] === lx && end[1] === ly);
+  const reverseStartMatch = (end[0] === currentPath[0][0] && end[1] === currentPath[0][1]);
+  const reverseEndMatch = (start[0] === lx && start[1] === ly);
+
+  if ((startMatch && endMatch) || (reverseStartMatch && reverseEndMatch)) {
+    completedPaths[currentColor] = [...currentPath];
+  }
+
+  dragging = false;
+  currentColor = null;
+  currentPath = [];
+  startPoint = null;
+  drawAll();
+  checkWinOrLose();
+});
+
 startGame();

@@ -27,7 +27,6 @@ function renderScrambledWord(scrambled) {
   }
 }
 
-// Start or restart the game
 function resetGame() {
   originalWord = words[Math.floor(Math.random() * words.length)];
   scrambledWord = scramble(originalWord);
@@ -72,5 +71,4 @@ function confettiEffect() {
   }
 }
 
-// Start the game when page loads
 window.onload = resetGame;

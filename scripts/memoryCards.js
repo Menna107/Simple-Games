@@ -1,4 +1,5 @@
 const fruits = ['🍎', '🍌', '🍇', '🍓', '🍍', '🍉', '🍒', '🥝'];
+
 let cardValues = [];
 let firstCard = null;
 let secondCard = null;
@@ -133,5 +134,4 @@ style.textContent = `
 }`;
 document.head.appendChild(style);
 
-// Start game initially
 startGame();
