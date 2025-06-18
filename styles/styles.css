@@ -916,4 +916,15 @@ a {
   height: 35px;
   font-size: 18px;
 }
+.scrambled-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+  }
+
+  .guess-input{
+    width: 80%;
+  }
 }

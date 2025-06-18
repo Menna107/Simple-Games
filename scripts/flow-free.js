@@ -2,7 +2,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 const cellSize = 60;
-const rows = 8;
+const rows = 7;
 const cols = 5;
 
 let dragging = false;
