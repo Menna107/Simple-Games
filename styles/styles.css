@@ -577,7 +577,9 @@ a {
   justify-content: center;
   gap: 5px;
   flex-wrap: wrap;
+  margin-bottom: 0px;
 }
+
 
 /* Confetti animation */
 @keyframes fall {
@@ -634,7 +636,7 @@ a {
   display: flex;
   justify-content: center;   
   gap: 60px;                
-  padding: 20px;
+  padding: 0px;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
@@ -927,4 +929,6 @@ a {
   .guess-input{
     width: 80%;
   }
+  
+  
 }
